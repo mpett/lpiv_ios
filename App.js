@@ -11,6 +11,7 @@ import {View, Text, Image, StyleSheet, ScrollView, FlatList, Platform, ImageBack
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import MapView from 'react-native-maps';
 
 import {
   Header,

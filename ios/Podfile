@@ -32,6 +32,8 @@ target 'Matappen' do
 
   pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
 
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
   target 'MatappenTests' do
     inherit! :search_paths
     # Pods for testing
