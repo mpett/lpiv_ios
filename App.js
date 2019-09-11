@@ -9,6 +9,8 @@ import TouchableScale from 'react-native-touchable-scale';
 import LinearGradient from 'react-native-linear-gradient';
 import Geolocation from '@react-native-community/geolocation';
 
+import { Buffer } from 'buffer';
+
 import {
   Header,
   LearnMoreLinks,
