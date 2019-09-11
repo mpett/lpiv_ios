@@ -11,6 +11,8 @@ import Geolocation from '@react-native-community/geolocation';
 
 import { Buffer } from 'buffer';
 
+import type { Region } from 'react-native-maps';
+
 import {
   Header,
   LearnMoreLinks,
