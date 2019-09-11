@@ -12,6 +12,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import MapView from 'react-native-maps';
+import { Button, ListItem, SearchBar } from 'react-native-elements';
 
 import {
   Header,
