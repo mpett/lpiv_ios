@@ -14,6 +14,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import MapView from 'react-native-maps';
 import { Button, ListItem, SearchBar } from 'react-native-elements';
 import TouchableScale from 'react-native-touchable-scale';
+import LinearGradient from 'react-native-linear-gradient';
 
 import {
   Header,
