@@ -442,7 +442,9 @@ class SingleMapScreen extends React.Component {
             latitude: this.state.region.latitude,
             longitude: this.state.region.longitude
           }} image={marker_image}>
-            <MapView.Callout>
+            <MapView.Callout onPress = {() => {
+              // Navigate to details route with parameter
+              this.props.navigation.goBack() }} >
               <View>
                 <Text>{this.state.region.name}</Text>
               </View>
