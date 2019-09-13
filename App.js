@@ -1008,7 +1008,7 @@ class SplashScreen extends React.Component {
         />
         <View style={{marginBottom:222}}>
           <Text style={descriptionStyles}>
-            Västsvensk{"\n"}Matmaffia
+            Västsvenska{"\n"}Matappen
           </Text>
         </View>        
         <MenuScreen navigation={this.props.navigation} />
