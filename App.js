@@ -428,7 +428,7 @@ class SingleMapScreen extends React.Component {
   }
 
   render() {
-    const marker_image = require('./lpiv_pin_60_91.png');
+    const marker_image = require('./lpiv_pin_40_61.png');
 
     return (
       <View style={ styles.container }>
@@ -463,7 +463,7 @@ class MapScreen extends React.Component {
   }
 
   renderMarkers() {
-    const marker_image = require('./lpiv_pin_60_91.png');
+    const marker_image = require('./lpiv_pin_40_61.png');
     
     return producer_list.map((location, key) => {
 
@@ -1008,7 +1008,7 @@ class SplashScreen extends React.Component {
         />
         <View style={{marginBottom:222}}>
           <Text style={descriptionStyles}>
-            Västsvenska{"\n"}Matappen
+            Västsvensk{"\n"}Matmaffia
           </Text>
         </View>        
         <MenuScreen navigation={this.props.navigation} />
