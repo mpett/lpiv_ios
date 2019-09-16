@@ -568,67 +568,70 @@ class ProducerScreen extends React.Component {
 
     return(
       <View>
-        <ImageBackground source={{ uri: background }} style={{width: '100%', height: '100%'}}>
-          <HideStatusBar />
-          <ScrollView>
-            <View style = {{ backgroundColor: 'rgba(255, 255, 255, 0.75)', padding: 20, marginLeft: 20, marginBottom: 20, marginRight: 20, marginTop: 5, borderRadius: 10, marginTop: 200 }}>
-              <ScrollView>
-                <View style={{ justifyContent: 'center', alignItems: 'center', padding: 10 }}>
-                  <Image
-                    source={ { uri: logo_image }}
-                    style={{ width: 300, height: 100, flex: 1, resizeMode: 'contain' }}
-                  />
-                </View>
-                <View style={{
-                  borderBottomColor: 'black',
-                  borderBottomWidth: 1,
-                  marginBottom: 15
-                }}>
-                  <Text style={{fontWeight: 'bold'}}>Om oss</Text>
-                  <Text style={{marginBottom: 20, marginTop: 5}}>{description}</Text>
-                </View>
-                <View style={{
-                  borderBottomColor: 'black',
-                  borderBottomWidth: 1,
-                  marginBottom: 15,
-                }}>
-                  <Text style={{fontWeight: 'bold'}}>Kontaktuppfgifter</Text>
-                  <Text style={{marginBottom: 2, marginTop: 2}}>Besöksadress: {producer_adress}</Text>
-                  <Text style={{marginBottom: 2, marginTop: 2}}>Kontaktperson: {contact_person}</Text>
-                  <Text style={{marginBottom: 2, marginTop: 2}}>Besöksort: {producer_city}</Text>
-                  <Text style={{marginBottom: 2, marginTop: 2}}>E-post: {producer_email}</Text>
-                  <Text style={{marginBottom: 2, marginTop: 2}}>Telefon: {producer_phone}</Text>
-                  <Text style={{marginBottom: 17, marginTop: 2}}>Webbsida: {producer_website}</Text>
-                </View>
-                <View>
-                  <Text style={{fontWeight: 'bold'}}>Öppettider</Text>
-                  <Text style={{marginBottom: 20, marginTop: 5}}>{opening_hours}</Text>
-                </View>
-                <Button
-                  backgroundColor='#37503c'
-                  buttonStyle={{borderRadius: 5, marginLeft: 40, marginRight: 40, marginBottom: 0, marginTop: 20, backgroundColor: "#446f6d"}}
-                  title='Hitta oss på kartan'
-                  onPress = {() => {
-                    // Navigate to details route with parameter
-                    this.props.navigation.navigate('Map', {
-                      lat: latitude,
-                      long: longitude,
-                      adress: producer_adress,
-                      name: producer_name
-                    })}}
-                  />
+        <ImageBackground source={require('./field2.png')} style={{width: '100%', height: '100%'}}>
+          <ImageBackground source={{ uri: background }} style={{width: '100%', height: '100%'}}>
+            <HideStatusBar />
+            <ScrollView>
+              <View style = {{ backgroundColor: 'rgba(255, 255, 255, 0.75)', padding: 20, marginLeft: 20, marginBottom: 20, marginRight: 20, marginTop: 5, borderRadius: 10, marginTop: 200 }}>
+                <ScrollView>
+                  <View style={{ justifyContent: 'center', alignItems: 'center', padding: 10 }}>
+                    <Image
+                      source={ { uri: logo_image }}
+                      style={{ width: 300, height: 100, flex: 1, resizeMode: 'contain' }}
+                    />
+                  </View>
+                  <View style={{
+                    borderBottomColor: 'black',
+                    borderBottomWidth: 1,
+                    marginBottom: 15
+                  }}>
+                    <Text style={{fontWeight: 'bold'}}>Om oss</Text>
+                    <Text style={{marginBottom: 20, marginTop: 5}}>{description}</Text>
+                  </View>
+                  <View style={{
+                    borderBottomColor: 'black',
+                    borderBottomWidth: 1,
+                    marginBottom: 15,
+                  }}>
+                    <Text style={{fontWeight: 'bold'}}>Kontaktuppfgifter</Text>
+                    <Text style={{marginBottom: 2, marginTop: 2}}>Besöksadress: {producer_adress}</Text>
+                    <Text style={{marginBottom: 2, marginTop: 2}}>Kontaktperson: {contact_person}</Text>
+                    <Text style={{marginBottom: 2, marginTop: 2}}>Besöksort: {producer_city}</Text>
+                    <Text style={{marginBottom: 2, marginTop: 2}}>E-post: {producer_email}</Text>
+                    <Text style={{marginBottom: 2, marginTop: 2}}>Telefon: {producer_phone}</Text>
+                    <Text style={{marginBottom: 17, marginTop: 2}}>Webbsida: {producer_website}</Text>
+                  </View>
+                  <View>
+                    <Text style={{fontWeight: 'bold'}}>Öppettider</Text>
+                    <Text style={{marginBottom: 20, marginTop: 5}}>{opening_hours}</Text>
+                  </View>
                   <Button
                     backgroundColor='#37503c'
                     buttonStyle={{borderRadius: 5, marginLeft: 40, marginRight: 40, marginBottom: 0, marginTop: 20, backgroundColor: "#446f6d"}}
-                    title='Gå tillbaka'
+                    title='Hitta oss på kartan'
                     onPress = {() => {
                       // Navigate to details route with parameter
-                      this.props.navigation.goBack() }}
-                  />
-              </ScrollView>
-            </View>
-          </ScrollView>
+                      this.props.navigation.navigate('Map', {
+                        lat: latitude,
+                        long: longitude,
+                        adress: producer_adress,
+                        name: producer_name
+                      })}}
+                    />
+                    <Button
+                      backgroundColor='#37503c'
+                      buttonStyle={{borderRadius: 5, marginLeft: 40, marginRight: 40, marginBottom: 0, marginTop: 20, backgroundColor: "#446f6d"}}
+                      title='Gå tillbaka'
+                      onPress = {() => {
+                        // Navigate to details route with parameter
+                        this.props.navigation.goBack() }}
+                    />
+                </ScrollView>
+              </View>
+            </ScrollView>
+          </ImageBackground>
         </ImageBackground>
+        
       </View> 
     )
   }
