@@ -451,7 +451,6 @@ class SingleMapScreen extends React.Component {
             </MapView.Callout>
           </MapView.Marker>
         </MapView>
-        
       </View>
     );
   }
@@ -631,7 +630,6 @@ class ProducerScreen extends React.Component {
             </ScrollView>
           </ImageBackground>
         </ImageBackground>
-        
       </View> 
     )
   }
@@ -789,7 +787,6 @@ class SearchScreen extends React.Component {
                 color = "black"
               />
             <View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 15, width: 360}}>
-              
             </View>
           </View>
           <View style={{marginTop:5}}>
