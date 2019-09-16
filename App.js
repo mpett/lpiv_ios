@@ -772,6 +772,10 @@ class SearchScreen extends React.Component {
     return(
       <ImageBackground source={require('./field2.png')} style={{width: '100%', height: '100%'}} style={viewStyles}>
         <View style={{marginTop: 105}}>
+            <View style = {{justifyContent: 'center', alignItems: 'center', marginTop: 45, marginBottom: 20}}>
+              <Text style={descriptionStyles}>Sök</Text>
+              <Text style={{ color: "#282828", fontSize: 10, fontStyle: "italic" }}>Sök bland alla producenter...</Text>
+            </View>
           <View>
               <SearchBar
                 round
@@ -781,6 +785,8 @@ class SearchScreen extends React.Component {
                 placeholder="Sök..."
                 value={this.state.search}
                 width="100%"
+                lightTheme = {true}
+                color = "black"
               />
             <View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 15, width: 360}}>
               
@@ -792,7 +798,7 @@ class SearchScreen extends React.Component {
               //ItemSeparatorComponent={this.ListViewItemSeparator}
               renderItem={this.renderItem}
               enableEmptySections={false}
-              style={{ marginBottom: 190 }}
+              style={{ marginBottom: 370 }}
               keyExtractor = {(item, index) => index.toString()}
             />
           </View>
