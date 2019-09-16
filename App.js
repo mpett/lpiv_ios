@@ -986,7 +986,7 @@ class OverviewScreen extends React.Component {
               //ItemSeparatorComponent={this.ListViewItemSeparator}
               renderItem={this.renderItem}
               enableEmptySections={false}
-              style={{ marginBottom: 347 }}
+              style={{ marginBottom: 327 }}
               keyExtractor = {(item, index) => index.toString()}
             />
           </View>
