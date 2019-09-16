@@ -634,6 +634,172 @@ class ProducerScreen extends React.Component {
   }
 }
 
+class SearchScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isLoading: true, search: '' };
+    this.arrayholder = [];
+  }
+
+  componentDidMount() {
+    this.setState(
+      {
+        isLoading: false,
+        dataSource: producer_list,
+      },
+      function() {
+        this.arrayholder = producer_list;
+      }
+    );
+  }
+
+  search = text => {
+    //console.log(text);
+  };
+
+  clear = () => {
+    this.search.clear();
+  };
+
+  SearchFilterFunction(text) {
+    const newData = this.arrayholder.filter(function(item) {
+      const itemData = item.business_name ? item.business_name.toUpperCase() : ''.toUpperCase();
+      const textData = text.toUpperCase();
+      return itemData.indexOf(textData) > -1;
+    });
+    this.setState({
+      dataSource: newData,
+      search: text,
+    });
+  }
+
+  ListViewItemSeparator = () => {
+    return(
+      <View 
+        style = {{
+          height: 0.3,
+          width: '90%',
+          backgroundColor: '#080808',
+        }}
+      />
+    );
+  };
+
+  renderItem = ({ item }) => (
+    <ListItem
+      Component = {TouchableScale}
+      friction = {90}
+      tension = {100}
+      activeScale = {0.95}
+      linearGradientProps = {{
+        colors: ['#3a5f5d', '#446f6d']
+      }}
+      ViewComponent = {LinearGradient}
+      leftAvatar = {{ rounded: true, source: { uri: item.logo_url }, justifyContent: 'center' }}
+      title={item.business_name}
+      titleStyle = {{ color: 'white', fontWeight: 'bold' }}
+      //subtitle="LPIV, Matfest"
+      //subtitleStyle = {{ color: 'white' }}
+      chevronColor="white"
+      chevron
+      containerStyle = {{ marginLeft: 5,
+        marginRight: 5, 
+        marginTop: 10, 
+        borderRadius: 4, // adds the rounded corners
+        backgroundColor: '#fff',
+        height: 60,
+        borderWidth: 1,
+        borderColor: '#558a87'
+      }}
+
+      onPress = {() => {
+        this.props.navigation.navigate('Producer', {
+          itemId: 86,
+          otherParam: item.business_name,
+          desc: item.description,
+          image: item.logo_url,
+          cover: item.cover_image_url,
+          lat: item.latitude,
+          long: item.longitude,
+          direction: item.map_direction_link,
+          adress: item.visiting_adress,
+          name: item.business_name,
+          adress: item.visiting_adress,
+          contact_person: item.contact_person,
+          producer_city: item.city,
+          producer_email: item.email,
+          producer_phone: item.phone,
+          producer_website: item.website,
+          opening_hours: item.opening_hours
+        });
+      }} 
+    />
+  )
+
+  SearchFilterFunction(text) {
+    const newData = this.arrayholder.filter(function(item) {
+      const itemData = item.business_name ? item.business_name.toUpperCase() : ''.toUpperCase();
+      const textData = text.toUpperCase();
+      return itemData.indexOf(textData) > -1;
+    });
+    this.setState({
+      dataSource: newData,
+      search: text,
+    });
+  }
+
+  render() {
+    const viewStyles = [
+      {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#827c34'
+      },
+      { backgroundColor: '#827c34' }
+    ];
+
+    const descriptionStyles = {
+      color: '#282828',
+      fontSize: 25,
+      fontWeight: 'bold',
+      padding:10
+    };
+
+    return(
+      <ImageBackground source={require('./field2.png')} style={{width: '100%', height: '100%'}} style={viewStyles}>
+        <View style={{marginTop: 105}}>
+          <View>
+              <SearchBar
+                round
+                searchIcon={{ size: 24 }}
+                onChangeText = {text => this.SearchFilterFunction(text)}
+                onClear={text => this.SearchFilterFunction('')}
+                placeholder="Sök..."
+                value={this.state.search}
+                width="100%"
+              />
+            <View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 15, width: 360}}>
+              
+            </View>
+          </View>
+          <View style={{marginTop:5}}>
+            <FlatList 
+              data={this.state.dataSource}
+              //ItemSeparatorComponent={this.ListViewItemSeparator}
+              renderItem={this.renderItem}
+              enableEmptySections={false}
+              style={{ marginBottom: 190 }}
+              keyExtractor = {(item, index) => index.toString()}
+            />
+          </View>
+        </View>
+        <MenuScreen navigation={this.props.navigation} />
+      </ImageBackground>
+    );
+  }
+}
+
 class OverviewScreen extends React.Component {
   
   constructor(props) {
@@ -1119,6 +1285,41 @@ const ProducerStack = createStackNavigator(
   {headerMode: 'screen'}
 )
 
+const SearchStack = createStackNavigator(
+  {
+    ProducerList: {
+      screen: SearchScreen,
+      navigationOptions: {
+        header: null,
+      }
+    },
+    Producer: {
+      screen: ProducerScreen,
+      navigationOptions: {
+        header: null,
+      }
+    },
+    Map: {
+      screen: SingleMapScreen,
+      navigationOptions: {
+        header: null,
+      }
+    }
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },  
+  },
+  {headerMode: 'screen'}
+)
+
 const ListStack = createStackNavigator(
   {
     ProducerList: {
@@ -1217,7 +1418,7 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     Sök: {
-      screen: ProducerStack,
+      screen: SearchStack,
       navigationOptions: {
         tabBarVisible: false
       }
