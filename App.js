@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Image, StyleSheet, ScrollView, FlatList, Platform, ImageBackground, TouchableOpacity, StatusBar} from 'react-native';
+import {View, Text, Image, StyleSheet, ScrollView, FlatList, Platform, ImageBackground, TouchableOpacity, StatusBar, Dimensions} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -12,6 +12,8 @@ import Geolocation from '@react-native-community/geolocation';
 import { Buffer } from 'buffer';
 
 import type { Region } from 'react-native-maps';
+
+const screenWidth = Math.round(Dimensions.get('window').width);
 
 export interface LatLng {
   latitude: number;
@@ -703,8 +705,8 @@ class SearchScreen extends React.Component {
       //subtitleStyle = {{ color: 'white' }}
       chevronColor="white"
       chevron
-      containerStyle = {{ marginLeft: 5,
-        marginRight: 5, 
+      containerStyle = {{ marginLeft: 0,
+        marginRight: 0, 
         marginTop: 10, 
         borderRadius: 4, // adds the rounded corners
         backgroundColor: '#fff',
@@ -784,9 +786,8 @@ class SearchScreen extends React.Component {
                 value={this.state.search}
                 width="100%"
                 lightTheme = {true}
-                color = "black"
               />
-            <View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 15, width: 360}}>
+            <View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 15, width: screenWidth - 40}}>
             </View>
           </View>
           <View style={{marginTop:5}}>
@@ -875,8 +876,8 @@ class OverviewScreen extends React.Component {
       //subtitleStyle = {{ color: 'white' }}
       chevronColor="white"
       chevron
-      containerStyle = {{ marginLeft: 5,
-        marginRight: 5, 
+      containerStyle = {{ marginLeft: 0,
+        marginRight: 0, 
         marginTop: 10, 
         borderRadius: 4, // adds the rounded corners
         backgroundColor: '#fff',
@@ -950,7 +951,7 @@ class OverviewScreen extends React.Component {
             <Text style={{ color: "#282828", fontSize: 10, fontStyle: "italic" }}>Sortera efter kategori...</Text>
           </View>
           <View>
-            <View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 15}}>
+            <View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 15, width: screenWidth - 40}}>
               <Button
                 color='#827C34'
                 buttonStyle={{borderRadius: 5, width: 90, marginRight: 15, marginLeft:25, backgroundColor: "#446f6d"}}
@@ -1025,15 +1026,8 @@ class SplashScreen extends React.Component {
       );
     })
     .catch(error => {
-      this.setState(
-        {
-          isLoading: false,
-          dataSource: producer_list,
-        },
-        function() {
-          this.arrayholder = producer_list;
-        }
-      );
+      console.log(error);
+      alert(error);
     });
     
     //console.log(return_array);
@@ -1117,7 +1111,7 @@ class MenuScreen extends React.Component {
       flexWrap: 'wrap', 
       height: 30, 
       width: 30, 
-      marginRight: 30,
+      marginRight: 25,
       marginTop: 10
     }
 
@@ -1139,7 +1133,7 @@ class MenuScreen extends React.Component {
           <Image source={require('./menu_icons/karta.png')} style={ iconStyles } />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => this.props.navigation.navigate("Sök")}>
-          <Image source={require('./menu_icons/sok.png')} style={{ flexDirection: 'row', flexWrap: 'wrap', height: 30, width: 30, marginTop: 10 }} />
+          <Image source={require('./menu_icons/sok.png')} style={{ flexDirection: 'row', flexWrap: 'wrap', height: 30, width: 30, marginTop: 10, marginRight: 0 }} />
         </TouchableOpacity>
       </View>
     );
