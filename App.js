@@ -430,7 +430,7 @@ class SingleMapScreen extends React.Component {
   }
 
   render() {
-    const marker_image = require('./lpiv_pin_40_61.png');
+    const marker_image = require('./lpiv_pin_60_91.png');
 
     return (
       <View style={ styles.container }>
@@ -466,7 +466,7 @@ class MapScreen extends React.Component {
   }
 
   renderMarkers() {
-    const marker_image = require('./lpiv_pin_40_61.png');
+    const marker_image = require('./lpiv_pin_29_44.png');
     
     return producer_list.map((location, key) => {
 
@@ -920,6 +920,28 @@ class OverviewScreen extends React.Component {
       dataSource: newData,
       search: text,
     });
+  }
+
+  TypeFilterFunction(store_type) {
+    if (store_type === "Äta") {
+      const newData = this.arrayholder.filter(
+        e => e.producer_store_category_1 === true);
+      this.setState({
+        dataSource: newData
+      });
+    } else if (store_type === "Producent") {
+      const newData = this.arrayholder.filter(
+        e => e.producer_store_category_2 === true);
+      this.setState({
+        dataSource: newData
+      });
+    } else if (store_type === "Gårdsbutik") {
+      const newData = this.arrayholder.filter(
+        e => e.producer_store_category_3 === true);
+      this.setState({
+        dataSource: newData
+      });
+    }
   }
 
   render() {
