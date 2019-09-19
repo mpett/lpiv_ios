@@ -594,7 +594,7 @@ class ProducerScreen extends React.Component {
                     borderBottomWidth: 1,
                     marginBottom: 15,
                   }}>
-                    <Text style={{fontWeight: 'bold'}}>Kontaktuppfgifter</Text>
+                    <Text style={{fontWeight: 'bold'}}>Kontaktuppgifter</Text>
                     <Text style={{marginBottom: 2, marginTop: 2}}>Besöksadress: {producer_adress}</Text>
                     <Text style={{marginBottom: 2, marginTop: 2}}>Kontaktperson: {contact_person}</Text>
                     <Text style={{marginBottom: 2, marginTop: 2}}>Besöksort: {producer_city}</Text>
