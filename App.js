@@ -432,7 +432,7 @@ class SingleMapScreen extends React.Component {
   }
 
   render() {
-    const marker_image = require('./lpiv_pin_60_91.png');
+    const marker_image = require('./lpiv_pin_29_44.png');
 
     return (
       <View style={ styles.container }>
@@ -468,7 +468,7 @@ class MapScreen extends React.Component {
   }
 
   renderMarkers() {
-    const marker_image = require('./lpiv_pin_29_44.png');
+    const marker_image = require('./lpiv_pin_16_24.png');
     
     return producer_list.map((location, key) => {
 
