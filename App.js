@@ -99,7 +99,7 @@ class EventSingleMapScreen extends Component {
           let resp = await fetch(
               `https://maps.googleapis.com/maps/api/directions/json?origin=
             ${ startLoc }&destination=${ destinationLoc }
-            &key=${ "AIzaSyAQTzaFD-IjWN1V9RkHVwx---QVX4e8F8A" }`
+            &key=${ "AIzaSyC4ul25P6k8nR9AeSH4G0xigSabVTYFuz0" }`
           )
           let respJson = await resp.json();
           //console.error(respJson);
@@ -257,7 +257,7 @@ class SingleMapScreen extends Component {
           let resp = await fetch(
               `https://maps.googleapis.com/maps/api/directions/json?origin=
             ${ startLoc }&destination=${ destinationLoc }
-            &key=${ "AIzaSyAQTzaFD-IjWN1V9RkHVwx---QVX4e8F8A" }`
+            &key=${ "AIzaSyC4ul25P6k8nR9AeSH4G0xigSabVTYFuz0" }`
           )
           let respJson = await resp.json();
           //console.error(respJson);
@@ -587,7 +587,7 @@ class ConnectedProducers extends React.Component {
     const descriptionStyles = {
       color: '#282828',
       fontSize: 25,
-      fontWeight: 'bold',
+      fontWeight: 'italic',
       padding:10
     };
 
@@ -837,7 +837,7 @@ class EventScreen extends React.Component {
               <View style = {{ backgroundColor: 'rgba(255, 255, 255, 0.75)', padding: 20, marginLeft: 40, marginBottom: 20, marginRight: 40, marginTop: 5, borderRadius: 30, marginTop: 80, flexDirection: 'row' }}>
                 <Image source = {{ uri: logo_image }} style={{width: 50, height: 50, resizeMode: "contain"}}/>
                 <View>
-                  <Text style={{ fontSize: 20, fontStyle: 'bold', marginLeft: 15, marginRight: 10 }}>{name}</Text>
+                  <Text style={{ fontSize: 20, marginLeft: 15, marginRight: 10 }}>{name}</Text>
                   <Text style={{ fontSize: 14, fontStyle: 'italic', marginLeft: 15, marginRight: 10 }}>{event_subtitle}</Text>
                 </View>
               </View>  
@@ -845,13 +845,13 @@ class EventScreen extends React.Component {
             
             <View style = {{ backgroundColor: 'rgba(255, 255, 255, 0.75)', padding: 20, marginLeft: 20, marginBottom: 20, marginRight: 20, marginTop: 5, borderRadius: 10, marginTop: 20 }}>
               <View>
-                <Text style={{ fontSize: 20, fontStyle: 'bold', marginLeft: 5, marginRight: 10 }}>Evenemang</Text>
+                <Text style={{ fontSize: 20, marginLeft: 5, marginRight: 10 }}>Evenemang</Text>
                 <Text style={{ fontSize: 15, marginLeft: 5, marginRight: 10 }}>{info}</Text>
               </View>
             </View>
             <View style = {{ backgroundColor: 'rgba(255, 255, 255, 0.75)', padding: 20, marginLeft: 20, marginRight: 20, borderRadius: 10, marginBottom: 5, marginTop: 5 }}>
               <View>
-                <Text style={{ fontSize: 20, fontStyle: 'bold', marginLeft: 5, marginRight: 10 }}>Information</Text>
+                <Text style={{ fontSize: 20, marginLeft: 5, marginRight: 10 }}>Information</Text>
                 <Text style={{ fontSize: 15, marginLeft: 5, marginRight: 10 }}>{contact_info}</Text>
               </View>
             </View>
@@ -2370,7 +2370,7 @@ class RenderHeader extends React.Component {
             backgroundColor: '#282828',
             justifyContent: 'space-around',
             marginTop: -25,
-            height: 75
+            height: 95
           }
         }
       />
