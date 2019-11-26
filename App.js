@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {View, Text, Image, StyleSheet, ScrollView, FlatList, Platform, ImageBackground, TouchableOpacity, StatusBar, Dimensions} from 'react-native';
+import {View, Image, StyleSheet, ScrollView, FlatList, Platform, ImageBackground, TouchableOpacity, StatusBar, Dimensions, SafeAreaView, Linking} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import MapView from 'react-native-maps';
-import { Button, ListItem, SearchBar } from 'react-native-elements';
+import { Button, ListItem, SearchBar, Header, Avatar } from 'react-native-elements';
 import TouchableScale from 'react-native-touchable-scale';
 import LinearGradient from 'react-native-linear-gradient';
 import Geolocation from '@react-native-community/geolocation';
@@ -12,6 +12,8 @@ import Geolocation from '@react-native-community/geolocation';
 import { Buffer } from 'buffer';
 
 import type { Region } from 'react-native-maps';
+import { Text } from "native-base";
+import Polyline from "@mapbox/polyline";
 
 const screenWidth = Math.round(Dimensions.get('window').width);
 
